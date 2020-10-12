@@ -1,5 +1,5 @@
 -- ghci str8ts
--- table (chunksOf 6 (solveIt str8tsBoard gapsBoard))
+-- table (solveIt str8tsBoard gapsBoard)
 
 module Str8ts where
 import Data.List ( nub, transpose )
@@ -28,7 +28,7 @@ str8tsBoard_9x9 :: [Int]
 str8tsBoard_9x9 = [0, 0, -1, -1, 0, 0, -1, 0, 0,
                    6, 0, 0, 0, 0, -1, 0, 3, 0,
                    -1, 0, 0, 0, 0, 4, 0, 0, 0,
-                   0, 0, 4, -1, 0, 0, 0, 0, -1,
+                   0, 0, 2, -1, 0, 0, 0, 0, -1,
                    0, 0, 0, 0, 0, 0, 0, 0, 0,
                    1, 0, 0, 0, 0, -1, 7, 9, 0,
                    0, 0, 0, 8, 0, 0, 0, 0, -1,
@@ -119,7 +119,7 @@ notBlack (a:_) = if a == 1 then True else False
 tryWith :: Int -> [Int] -> [Int] -> Int -> [Int]
 tryWith p s g x | (p == ((boardSize s) - 1)) && normalParse && transposedParse = take ((boardSize s) - 1) s ++ [x] ++ drop (boardSize s) s
                 | (p /= ((boardSize s) - 1))                                   = take p s ++ [x] ++ drop (p + 1) s
-                | otherwise                                   = []
+                | otherwise                                                    = []
   where normalParse =  ((parseList (splitManySizes (sizes (splitIn0and1 g)) s ) (splitIn0and1 g)) == True)
         transposedParse = ((parseList (splitManySizes (sizes (splitIn0and1Transposed g)) (joinTranspose (splitIn0and1Transposed s))) (splitIn0and1Transposed g)) == True)
 
