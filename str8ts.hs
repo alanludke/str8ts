@@ -6,6 +6,16 @@ import Data.List ( nub, transpose )
 import Data.List.Split
     ( chunksOf, condense, dropBlanks, split, whenElt )
 
+str8tsBoard_3x3 :: [Int]
+str8tsBoard_3x3 = [0, 0, 0,
+                   2, 0, -1,
+                   0, 0, 0]
+
+gapsBoard_3x3 :: [Int]
+gapsBoard_3x3 = [1, 1, 1,
+                 0, 1, 0,
+                 1, 1, 1]
+
 --https://www.janko.at/Raetsel/Straights/105.a.htm
 str8tsBoard_6x6 :: [Int]
 str8tsBoard_6x6 = [-1, 0, 0, 0, -1, 4,
