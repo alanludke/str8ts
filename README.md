@@ -1,2 +1,2 @@
 # Str8ts
-Str8ts game solver in haskell language
+Str8ts game solver in haskell
